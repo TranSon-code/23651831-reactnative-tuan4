@@ -1,20 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import MainTabScr from './src/screens/gio5/MainTabScr';
+import BookDetailScr from './src/screens/gio4/BookDetailScr';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const [currentScreen, setCurrentScreen] = useState<'MAIN' | 'DETAIL'>('MAIN');
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  if (currentScreen === 'DETAIL') {
+    return <BookDetailScr onBack={() => setCurrentScreen('MAIN')} />;
+  }
+
+  return <MainTabScr onNavigateDetail={() => setCurrentScreen('DETAIL')} />;
+}
