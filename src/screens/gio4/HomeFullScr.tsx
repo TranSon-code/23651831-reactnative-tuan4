@@ -8,7 +8,7 @@ import FloatingCart from '../../components/FloatingCart';
 export default function HomeFullScr({ onNavigateDetail }: { onNavigateDetail: () => void }) {
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="light-content" backgroundColor={Platform.OS === 'android' ? '#1A237E' : undefined} />
+      <StatusBar barStyle="light-content"/>
       <Header />
       <View style={styles.container}>
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
